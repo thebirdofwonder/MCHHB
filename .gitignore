@@ -1,0 +1,14 @@
+.env
+.env.save
+.env.local
+.env.*.local
+!.env.example
+secrets/
+資料/*document-ai*.json
+__pycache__/
+*.pyc
+.venv/
+venv/
+output/
+*.xlsx
+.DS_Store

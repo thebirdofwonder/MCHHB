@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>母子手帳 ワクチン接種記録抽出</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <style>
+    body { padding-bottom: 52px; }
+    .backend-footer {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      padding: 14px 16px;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      text-align: center;
+      z-index: 9999;
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.2);
+    }
+    .system-status {
+      margin-bottom: 1rem;
+      padding: 12px 16px;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .result-card {
+      margin-top: 1.5rem;
+      padding: 1rem 1.25rem;
+      background: #f0f7f0;
+      border-radius: 8px;
+      border: 1px solid #c8e6c9;
+    }
+    .result-card h3 { margin: 0 0 0.5rem; color: #2e7d32; }
+    .result-card p { margin: 0.25rem 0; color: #444; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>母子手帳 ワクチン接種記録抽出</h1>
+      <p>画像をアップロード → Claude API で読み取り → Excel / PDF をダウンロード</p>
+    </header>
+
+    <section class="card" id="upload-section">
+      <h2>画像アップロード</h2>
+
+      <div id="system-status" class="system-status" style="background:{{BACKEND_BG}}">
+        {{BACKEND_MESSAGE}}
+      </div>
+
+      <div class="dropzone" id="dropzone">
+        <input type="file" id="file-input" accept="image/*" multiple>
+        <p>クリックまたはドラッグ＆ドロップで画像を追加</p>
+        <p style="color:#888;font-size:0.85rem">母子手帳の「予防接種の記録」ページ（複数枚可）</p>
+      </div>
+      <div class="preview-grid" id="preview-grid"></div>
+      <div class="actions">
+        <button class="btn btn-primary" id="process-btn" {{PROCESS_DISABLED}}>抽出してダウンロード</button>
+        <button class="btn btn-secondary" id="clear-btn" disabled>クリア</button>
+      </div>
+      <div id="status" class="status hidden"></div>
+      <div id="result-card" class="result-card hidden"></div>
+    </section>
+  </div>
+
+  <div id="image-lightbox" class="image-lightbox hidden" role="dialog" aria-modal="true">
+    <div class="image-lightbox-backdrop"></div>
+    <div class="image-lightbox-content">
+      <button type="button" id="lightbox-close" class="image-lightbox-close" aria-label="閉じる">×</button>
+      <img id="lightbox-image" alt="プレビュー">
+      <p id="lightbox-caption"></p>
+    </div>
+  </div>
+
+  <footer id="backend-footer" class="backend-footer" style="background:{{BACKEND_BG}}" aria-live="polite">
+    <span id="backend-status">{{BACKEND_MESSAGE}}</span>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

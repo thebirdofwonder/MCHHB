@@ -1,0 +1,50 @@
+{
+  "child_name": null,
+  "vaccinations": [
+    {
+      "vaccine_name": "5種混合",
+      "dose_number": "1回目",
+      "date": "2026-06-23",
+      "lot_number": "5K15B",
+      "clinic": "リバーシティこどもクリニック",
+      "confidence": "medium",
+      "needs_review": false
+    },
+    {
+      "vaccine_name": "小児肺炎球菌",
+      "dose_number": "1回目",
+      "date": "2026-06-23",
+      "lot_number": "MW3994",
+      "clinic": "リバーシティこどもクリニック",
+      "confidence": "medium",
+      "needs_review": false
+    },
+    {
+      "vaccine_name": "B型肝炎",
+      "dose_number": "1回目",
+      "date": "2026-06-23",
+      "lot_number": "Y144B",
+      "clinic": "リバーシティこどもクリニック",
+      "confidence": "medium",
+      "needs_review": false
+    },
+    {
+      "vaccine_name": "ロタウイルス",
+      "dose_number": "1回目",
+      "date": "2026-06-23",
+      "lot_number": "Z013753",
+      "clinic": "リバーシティこどもクリニック",
+      "confidence": "medium",
+      "needs_review": false
+    },
+    {
+      "vaccine_name": "RSV",
+      "dose_number": "1回目",
+      "date": "2026-03-16",
+      "lot_number": "MJ4998",
+      "clinic": "愛育病院",
+      "confidence": "medium",
+      "needs_review": false
+    }
+  ]
+}
